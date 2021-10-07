@@ -3,17 +3,7 @@
 
 <head>
     <title>Looping Computation</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -33,6 +23,23 @@
     </form>
 
     <p id="result">This text will be replaced </p>
+
+    <form>
+        <input type="radio" id="rg1_plus" name="operation" value="plus" onclick="processRadio()">
+        <label for="rg1_plus">+</label></br>
+
+        <input type="radio" id="rg1_minus" name="operation" value="minus" onclick="processRadio()">
+        <label for="rg1_minus">-</label></br>
+
+        <input type="radio" id="rg1_times" name="operation" value="times" onclick="processRadio()">
+        <label for="rg1_times">*</label></br>
+
+        <input type="radio" id="rg1_divide" name="operation" value="divide" onclick="processRadio()">
+        <label for="rg1_divide">/</label></br>
+    </form>
+
+    <p id="radioButtonResult">This text will be replaced </p>
+
     <script>
 
         function powers() {
@@ -47,6 +54,25 @@
                 result += r + " "
             }
             out.innerHTML = result
+        }
+
+        function processRadio() {
+            base = document.getElementById("form1_base").value
+            exponent = document.getElementById("form1_exponent").value
+            plus = document.getElementById("rg1_plus").checked
+            minus = document.getElementById("rg1_minus").checked
+            times = document.getElementById("rg1_times").checked
+            divide = document.getElementById("rg1_divide").checked
+            result = document.getElementById("radioButtonResult")
+
+            if (plus)
+                result.innerHTML = +base + +exponent
+            else if (minus)
+                result.innerHTML = base - exponent
+            else if (times)
+                result.innerHTML = base * exponent
+            else
+                result.innerHTML = base / exponent
         }
     </script>
 </body>
